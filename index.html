@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Origen — Desbloquea tu Prosperidad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F6F1E7; --bg-soft: #FBF7EF; --panel: #FFFDF8;
+    --ink: #2B2A26; --ink-soft: #6B655A;
+    --forest: #3E5C46; --forest-dark: #2C4432;
+    --gold: #B08D57; --clay: #C97B5F; --line: #E3D9C4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:'Inter', sans-serif; line-height:1.55; }
+  h1,h2,h3{ font-family:'Fraunces', serif; font-weight:600; margin:0; color:var(--forest-dark);}
+  .wrap{ max-width:960px; margin:0 auto; padding:0 24px; }
+  .narrow{ max-width:640px; margin:0 auto; padding:0 24px; }
+  section{ padding:70px 0; }
+  .eyebrow{ font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:14px; display:block; }
+  p.lead{ font-size:17px; color:var(--ink-soft); max-width:560px; }
+  p.copy{ font-size:14.5px; color:var(--ink); margin:0; }
+  p.soft{ color:var(--ink-soft); }
+  .btn{ display:inline-block; font-family:'Inter'; font-weight:600; font-size:15px; padding:15px 30px; border-radius:30px; border:none; cursor:pointer; background:var(--forest); color:#fff; text-decoration:none; text-align:center; transition:background .2s, transform .2s; }
+  .btn:hover{ background:var(--forest-dark); transform:translateY(-1px); }
+  .btn.block{ width:100%; }
+
+  /* HERO */
+  .hero{ display:flex; align-items:center; gap:56px; padding-top:100px; padding-bottom:60px; }
+  .hero-copy{ flex:1.1; }
+  .hero-copy h1{ font-size:44px; line-height:1.14; margin-bottom:20px; }
+  .hero-visual{ flex:.9; display:flex; justify-content:center; }
+  .bloom{ width:230px; height:230px; position:relative; }
+  .bloom span{ position:absolute; font-size:52px; opacity:0; left:50%; top:50%; transform:translate(-50%,-50%) scale(.6); animation: pop 3.6s ease-in-out infinite; }
+  .bloom span:nth-child(1){ animation-delay:0s; } .bloom span:nth-child(2){ animation-delay:.9s; }
+  .bloom span:nth-child(3){ animation-delay:1.8s; } .bloom span:nth-child(4){ animation-delay:2.7s; }
+  @keyframes pop{ 0%{opacity:0; transform:translate(-50%,-50%) scale(.6);} 8%{opacity:1; transform:translate(-50%,-50%) scale(1);} 22%{opacity:1; transform:translate(-50%,-50%) scale(1);} 30%{opacity:0; transform:translate(-50%,-50%) scale(1.15);} 100%{opacity:0;} }
+  @media (prefers-reduced-motion: reduce){ .bloom span{ animation:none; opacity:1; position:static; display:inline-block; } }
+  .scrollhint{ margin-top:30px; font-size:13px; color:var(--ink-soft); }
+
+  /* DIAS (contenido visible, ya no bloqueado) */
+  .dia-block{ display:flex; flex-direction:column; gap:16px; padding:36px 0; border-top:1px solid var(--line); }
+  .dia-block:first-of-type{ border-top:none; }
+  .dia-head{ display:flex; align-items:center; gap:12px; }
+  .dia-head .num{ font-family:'Fraunces', serif; font-size:30px; color:var(--gold); }
+  .dia-head h3{ font-size:20px; }
+  .dia-block.locked{ opacity:.75; }
+  .dia-head .badge-lock{ margin-left:auto; font-size:19px; }
+  .unlock-note{ border:1px dashed var(--line); border-radius:12px; padding:14px 16px; background:var(--bg-soft); font-size:13px; color:var(--ink-soft); }
+  .media{ border:1px solid var(--line); border-radius:14px; padding:14px; background:var(--panel); display:flex; flex-direction:column; gap:10px; }
+  .media .top{ display:flex; align-items:center; gap:12px; }
+  .media .icon{ width:34px; height:34px; border-radius:50%; background:var(--forest); color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:13px; }
+  .media .name{ font-size:12.5px; font-weight:600; }
+  .media .dur{ font-size:11px; color:var(--ink-soft); }
+  video, audio{ width:100%; display:block; border-radius:8px; }
+  video{ background:#000; }
+  blockquote.q{ margin:0; padding:12px 14px; border-left:3px solid var(--gold); background:var(--bg-soft); font-size:13.5px; font-style:italic; color:var(--ink); border-radius:0 10px 10px 0; }
+  .frase-inline{ font-family:'Fraunces', serif; font-size:17px; text-align:center; color:var(--forest-dark); padding:6px 4px; }
+  .side-by-side{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+
+  .frase-section{ background:var(--forest-dark); color:#fff; text-align:center; }
+  .frase-section blockquote{ font-family:'Fraunces', serif; font-size:26px; font-weight:500; max-width:640px; margin:0 auto; line-height:1.4; }
+  .frase-section .who{ margin-top:18px; font-size:13px; opacity:.7; letter-spacing:.05em; }
+
+  .testi-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:36px; }
+  .testi-card{ background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:22px; }
+  .testi-card blockquote{ margin:0 0 12px; font-size:14px; font-style:italic; color:var(--ink); }
+  .testi-card .who{ font-weight:600; font-size:13.5px; color:var(--forest-dark); }
+
+  .bono{ border:1.5px solid var(--gold); border-radius:14px; padding:18px; background:#FCF6E9; display:flex; gap:14px; align-items:flex-start; margin-top:28px; }
+  .price{ font-family:'Fraunces', serif; font-size:34px; color:var(--forest-dark); margin:20px 0 6px; }
+  ul.checklist{ margin:0; padding-left:18px; font-size:14.5px; line-height:1.8; color:var(--ink);}
+  .pagos{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+  .pago-chip{ display:flex; align-items:center; gap:8px; border:1px solid var(--line); background:var(--panel); border-radius:20px; padding:9px 16px; font-size:13.5px; }
+
+  .card{ background:var(--panel); border:1px solid var(--line); border-radius:20px; padding:40px; }
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  label.field{ display:flex; flex-direction:column; gap:6px; font-size:12.5px; color:var(--ink-soft); font-weight:500; }
+  input, textarea{ font-family:'Inter'; font-size:14.5px; padding:12px 14px; border-radius:10px; border:1px solid var(--line); background:#fff; color:var(--ink); resize:vertical;}
+  input:focus, textarea:focus{ outline:2px solid var(--forest); outline-offset:1px; }
+  .full{ grid-column:1 / -1; }
+  .microcopy{ font-size:12.5px; color:var(--ink-soft); text-align:center; margin-top:14px; }
+  .confirm{ display:none; text-align:center; padding:10px 0; }
+  .confirm .icon{ font-size:38px; margin-bottom:12px; }
+
+  footer{ text-align:center; padding:40px 0 60px; font-size:12.5px; color:var(--ink-soft); }
+
+  @media (max-width: 760px){
+    .hero{ flex-direction:column; padding-top:60px; text-align:center; }
+    .hero-copy h1{ font-size:32px; } .hero-copy p.lead{ margin:0 auto; }
+    .grid2, .side-by-side, .testi-grid{ grid-template-columns:1fr; }
+    .card{ padding:26px 20px; } section{ padding:52px 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="wrap" style="padding-top:34px; padding-bottom:0;">
+  <div style="display:flex; align-items:center; gap:10px;">
+    <img src="logo-origen.jpeg" alt="Origen" style="width:28px; height:28px; object-fit:cover; border-radius:7px;">
+    <span style="font-size:12.5px; color:var(--ink-soft);">Un proceso de <b style="color:var(--forest-dark); font-weight:600;">Origen</b></span>
+  </div>
+</div>
+<div class="wrap hero" style="padding-top:26px;">
+  <div class="hero-copy">
+    <h1>Desbloquea tu <span style="color:var(--clay);">Prosperidad</span></h1>
+    <p class="lead" style="font-size:19px; margin-top:6px;">Un recorrido de 4 días para mirar de frente lo que quieres cambiar.</p>
+    <p class="lead">No es un curso más. Es un espacio breve y cercano — un poco cada día — para reconocer dónde estás, qué te frena, y qué es posible desde aquí.</p>
+    <br>
+    <a href="#registro" class="btn">Quiero comenzar mi proceso</a>
+    <div class="scrollhint">4 días · unos minutos cada uno · a tu ritmo</div>
+  </div>
+  <div class="hero-visual"><div class="bloom"><span>🌱</span><span>🌿</span><span>🌳</span><span>🌸</span></div></div>
+</div>
+
+<!-- LOS 4 DIAS -->
+<section class="wrap">
+  <span class="eyebrow">Tu recorrido</span>
+  <h2 style="font-size:28px; margin-bottom:10px;">Los 4 días</h2>
+  <p class="lead" id="dias-lead">Aquí tienes los 4 días completos. Te sugerimos vivir uno por día — dale espacio a cada reflexión — pero tú decides tu ritmo.</p>
+  <div id="dias-container"></div>
+
+  <div class="bono" style="margin-top:10px;">
+    <div style="font-size:22px;">💬</div>
+    <div>
+      <div style="font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--gold); font-weight:700;">¿Tienes dudas después de estos 4 días?</div>
+      <div style="font-weight:600; font-size:14.5px; margin-top:3px;">Agenda tu Consulta Inicial Personalizada — sin costo</div>
+      <p class="copy soft" style="font-size:13px; margin-top:4px;">Comenzaremos con una consulta individual para conocer tu situación actual, escuchar tus objetivos y comprender qué aspectos deseas trabajar. Esta primera conversación nos permite definir un enfoque personalizado para tu proceso — sin compromiso.</p>
+      <a href="#registro" class="btn" style="margin-top:12px; padding:11px 22px; font-size:13.5px;">Agendar mi consulta</a>
+    </div>
+  </div>
+</section>
+
+<section class="frase-section">
+  <div class="wrap">
+    <blockquote>"No necesitas tenerlo todo resuelto para dar el siguiente paso. Solo necesitas darlo."</blockquote>
+    <div class="who">— Tu recorrido de 4 días</div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="wrap">
+  <span class="eyebrow">Resultados reales</span>
+  <h2 style="font-size:28px;">Lo que dicen quienes ya lo vivieron</h2>
+  <div class="testi-grid">
+    <div class="testi-card"><blockquote>"Llegué sintiéndome estancada. El proceso me permitió identificar aspectos personales que no había observado antes y hoy tomo decisiones con mucha más claridad y tranquilidad."</blockquote><div class="who">— María G., Guayaquil</div></div>
+    <div class="testi-card"><blockquote>"Lo que más valoro fue el acompañamiento personalizado. Sentí que cada sesión estaba enfocada en mi situación y eso hizo una gran diferencia para mí."</blockquote><div class="who">— Carlos A., Quito</div></div>
+    <div class="testi-card"><blockquote>"Más que buscar cambios inmediatos, encontré un espacio para comprender mejor mi historia y trabajar en mí de una forma diferente."</blockquote><div class="who">— Andrea R., Cuenca</div></div>
+  </div>
+</section>
+
+<!-- OFERTA -->
+<section class="narrow">
+  <span class="eyebrow">Tu siguiente paso</span>
+  <div style="display:flex; align-items:center; gap:16px; margin-top:4px;">
+    <img src="logo-origen.jpeg" alt="Origen" style="width:56px; height:56px; object-fit:cover; border-radius:12px;">
+    <div>
+      <h2 style="font-size:28px;">Origen</h2>
+      <p class="copy soft" style="font-size:13.5px; margin-top:2px;">Un proceso personalizado para comprender tu historia y avanzar con mayor claridad</p>
+    </div>
+  </div>
+  <p class="copy" style="margin-top:14px;">Lo que exploraste estos 4 días es solo el comienzo. Aquí es donde esto se convierte en un proceso real.</p>
+
+  <div style="display:flex; flex-direction:column; gap:18px; margin-top:20px;">
+    <div>
+      <h3 style="font-size:15.5px; margin-bottom:6px;">1. Consulta Inicial Personalizada (Sin costo)</h3>
+      <p class="copy soft" style="font-size:13.5px;">Comenzaremos con una consulta individual para conocer tu situación actual, escuchar tus objetivos y comprender qué aspectos deseas trabajar. Esta primera conversación nos permitirá definir un enfoque personalizado para tu proceso.</p>
+    </div>
+    <div>
+      <h3 style="font-size:15.5px; margin-bottom:6px;">2. Dos Sesiones Personalizadas con Método Yuen</h3>
+      <p class="copy soft" style="font-size:13.5px;">A través de dos sesiones individuales trabajaremos de manera enfocada los aspectos que hayas identificado como prioritarios. Cada sesión se adapta a tu proceso personal y busca acompañarte en el fortalecimiento de nuevas perspectivas y recursos para avanzar hacia tus objetivos.</p>
+    </div>
+    <div>
+      <h3 style="font-size:15.5px; margin-bottom:6px;">3. Una Constelación Familiar en el Agua</h3>
+      <p class="copy soft" style="font-size:13.5px;">Como parte del proceso, realizaremos una sesión de Constelación Familiar en el Agua, orientada a explorar las dinámicas familiares y personales que desees revisar. Esta experiencia busca aportar una comprensión más amplia de tu historia y de los patrones que consideres importantes abordar dentro de tu camino de desarrollo personal.</p>
+    </div>
+  </div>
+
+  <div class="bono">
+    <div style="font-size:22px;">🎁</div>
+    <div>
+      <div style="font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--gold); font-weight:700;">Al inscribirte, también obtienes</div>
+      <div style="font-weight:600; font-size:14.5px; margin-top:3px;">Chat privado conmigo durante 21 días</div>
+      <p class="copy soft" style="font-size:13px; margin-top:4px;">Para acompañarte mientras aplicas lo que vimos — dudas, dificultades, avances.</p>
+    </div>
+  </div>
+
+  <div class="price">$300</div>
+  <p class="copy soft" style="font-size:12.5px; margin-top:-4px;">Pago único</p>
+
+  <div class="pagos">
+    <div class="pago-chip">💳 Tarjeta</div>
+    <div class="pago-chip">🏦 Transferencia</div>
+    <div class="pago-chip">🅿️ PayPal</div>
+  </div>
+  <p class="copy soft" style="font-size:12.5px; margin-top:10px;">Los datos de pago se envían directamente por WhatsApp al confirmar tu inscripción, por seguridad.</p>
+
+  <p class="copy soft" style="font-size:12.5px; margin-top:16px;">[FAQ]</p>
+</section>
+
+<!-- REGISTRO / INSCRIPCION -->
+<section class="narrow" id="registro">
+  <span class="eyebrow">Inscripción</span>
+  <h2 style="font-size:26px;">Empecemos</h2>
+  <p class="lead">Cuéntame un poco de ti. Te contacto directamente para confirmar tu inscripción y coordinar el pago.</p>
+
+  <div class="card" style="margin-top:26px;">
+    <form id="form-registro" onsubmit="return manejarRegistro(event)">
+      <div class="grid2">
+        <label class="field">Nombre<input type="text" id="f-nombre" required placeholder="Tu nombre"></label>
+        <label class="field">Correo<input type="email" id="f-correo" required placeholder="tucorreo@ejemplo.com"></label>
+        <label class="field">WhatsApp<input type="tel" id="f-whatsapp" required placeholder="+593 ..."></label>
+        <label class="field">Ciudad<input type="text" id="f-ciudad" placeholder="Tu ciudad"></label>
+        <label class="field full">País<input type="text" id="f-pais" placeholder="Tu país"></label>
+        <label class="field full">¿Qué te gustaría transformar?<textarea id="f-objetivo" rows="2" placeholder="Cuéntame brevemente..."></textarea></label>
+      </div>
+      <br>
+      <button type="submit" class="btn block">Quiero comenzar mi proceso</button>
+    </form>
+
+    <div class="confirm" id="confirmacion">
+      <div class="icon">🎉</div>
+      <h2 id="confirm-titulo">¡Gracias!</h2>
+      <p class="copy soft">Recibí tus datos. Te escribo directamente por WhatsApp para confirmar tu inscripción y coordinar el pago.</p>
+    </div>
+
+    <div class="microcopy">Tus datos se usan solo para contactarte sobre este proceso. Nada de spam.</div>
+  </div>
+</section>
+
+<section class="narrow" style="text-align:center; padding-bottom:40px;">
+  <span class="eyebrow">Contacto</span>
+  <h2 style="font-size:22px; margin-bottom:16px;">¿Alguna duda? Escríbeme</h2>
+  <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+    <a href="https://wa.me/593986758740" class="pago-chip" style="text-decoration:none; color:var(--ink);">💬 WhatsApp: 098 675 8740</a>
+    <a href="mailto:arq.sistemica.empresarial@gmail.com" class="pago-chip" style="text-decoration:none; color:var(--ink);">✉️ arq.sistemica.empresarial@gmail.com</a>
+  </div>
+</section>
+
+<footer>Origen — Desbloquea tu Prosperidad · Guayaquil, Ecuador</footer>
+
+<script>
+const diasData = [
+  { n:1, titulo:'Conectar', video:'V1.mp4', vdur:'1:56', audio:'A1.mp3', adur:'2:31',
+    bienvenida:'Hola. Qué bueno tenerte aquí. Hoy simplemente quiero que te sientes, respires, y me acompañes unos minutos. No busques hacerlo perfecto — solo estar presente.',
+    reflexion:'Todos partimos de un lugar distinto. Antes de hablar de prosperidad, de metas o de cambios, quiero que hoy simplemente reconozcas — sin juzgarte — dónde estás parado en este momento.',
+    frase:'Todo cambio real empieza por mirar de frente donde estamos.', audioEsHistoria:false },
+  { n:2, titulo:'Reflexionar', video:'V2.mp4', vdur:'1:27', audio:'A2.mp3', adur:'2:07',
+    bienvenida:'Ayer diste el primer paso. Hoy vamos a mirar un poco más profundo — con la misma calma de siempre.',
+    reflexion:'Muchas veces lo que nos frena no es falta de oportunidades, sino creencias y hábitos que llevamos tanto tiempo cargando que ya ni los notamos.',
+    frase:'No se trata de tener más, se trata de soltar lo que ya no te sirve.', audioEsHistoria:false },
+  { n:3, titulo:'Una posibilidad de cambio', video:'V3.mp4', vdur:'1:06', audio:'A3.mp3', adur:'5:30',
+    bienvenida:'Hoy quiero mostrarte algo distinto: lo que sí es posible cuando se hacen las cosas con acompañamiento y método.',
+    reflexion:'Reconocer el punto de partida y ver los patrones que nos frenan es importante — pero de nada sirve si no vemos también que el cambio es real y posible.',
+    frase:'La prosperidad no es un golpe de suerte, es una decisión sostenida en el tiempo.', audioEsHistoria:true },
+  { n:4, titulo:'Tu siguiente paso', video:'V4.mp4', vdur:'0:53', audio:'A4.mp3', adur:'2:29',
+    bienvenida:'Llegaste hasta acá, y eso ya dice algo de ti. Hoy quiero mostrarte cómo podemos seguir este camino juntos, si tú quieres.',
+    reflexion:'En estos días miramos de dónde partes, qué te ha frenado, y que el cambio sí es posible. Lo que sigue es simple: convertir esta reflexión en un proceso concreto, acompañado, con método.',
+    frase:'No necesitas tenerlo todo resuelto para dar el siguiente paso. Solo necesitas darlo.', audioEsHistoria:false }
+];
+
+function mediaBlockReal(icon, name, dur, label){
+  const isVideo = name.toLowerCase().endsWith('.mp4');
+  const player = isVideo
+    ? `<video controls preload="metadata"><source src="${name}" type="video/mp4"></video>`
+    : `<audio controls preload="metadata"><source src="${name}" type="audio/mpeg"></audio>`;
+  return `<div class="media"><div class="top"><div class="icon">${icon}</div><div><div class="name">${label}</div><div class="dur">${name} · ${dur}</div></div></div>${player}</div>`;
+}
+
+function renderDias(){
+  const cont = document.getElementById('dias-container');
+  cont.innerHTML = diasData.map(d=>{
+    const mediaOrder = d.audioEsHistoria
+      ? mediaBlockReal('▶', d.video, d.vdur, 'Video — apertura') +
+        `<div class="unlock-note" style="border-style:dashed;">🎧 Escucha esta historia — el audio es el contenido central de hoy.</div>` +
+        mediaBlockReal('🎧', d.audio, d.adur, 'Audio — contenido central del día')
+      : `<div class="side-by-side">${mediaBlockReal('▶', d.video, d.vdur, 'Video del día')}${mediaBlockReal('🎧', d.audio, d.adur, 'Audio del día')}</div>`;
+    return `
+      <div class="dia-block">
+        <div class="dia-head"><span class="num">0${d.n}</span><h3>${d.titulo}</h3></div>
+        <p class="copy">${d.bienvenida}</p>
+        ${mediaOrder}
+        <blockquote class="q">${d.reflexion}</blockquote>
+        <div class="frase-inline">"${d.frase}"</div>
+      </div>`;
+  }).join('');
+}
+renderDias();
+
+function manejarRegistro(e){
+  e.preventDefault();
+  const nombre = document.getElementById('f-nombre').value.trim() || 'Hola';
+  // ⚠️ Integración pendiente: enviar estos datos a tu CRM / automatización
+  // (Manychat, Google Sheets, WhatsApp Business API, etc.)
+  document.getElementById('form-registro').style.display = 'none';
+  document.getElementById('confirm-titulo').innerText = '¡Gracias, ' + nombre + '!';
+  document.getElementById('confirmacion').style.display = 'block';
+  return false;
+}
+</script>
+
+</body>
+</html>
